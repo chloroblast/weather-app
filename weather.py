@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta
 import json
 import requests
-import sys
 
 app = Flask(__name__)
 app.config.update(
@@ -85,10 +84,5 @@ def delete_city(city_id):
     return redirect('/')
 
 
-# don't change the following way to run flask:
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        arg_host, arg_port = sys.argv[1].split(':')
-        app.run(host=arg_host, port=arg_port)
-    else:
-        app.run()
+    app.run()
